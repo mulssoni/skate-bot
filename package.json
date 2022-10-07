@@ -1,0 +1,24 @@
+{
+  "name": "skate-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot to handle rental indoor park sign ups cancellations and so on.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "skate-bot"
+  },
+  "author": "Samuli Välimäki",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.1.2",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
