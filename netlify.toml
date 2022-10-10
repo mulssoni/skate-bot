@@ -1,13 +1,7 @@
 [build]
-	command = "netlify-lambda install && mkdir ./public"
+	command = "npm install && npm run build"
 	functions = "netlify/functions"
 	publish = "public"
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["express"]
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
