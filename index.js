@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const port = 80;
 const url = "https://api.telegram.org/bot";
 const apiToken = process.env.TELEGRAM_ACCESS_TOKEN;
+const serverless = require("serverless-http");
 // Configurations
 app.use(bodyParser.json());
 // Endpoints
@@ -30,3 +31,5 @@ app.post("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+module.exports.handler = serverless(app);
