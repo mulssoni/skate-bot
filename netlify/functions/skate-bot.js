@@ -3,10 +3,11 @@ const express = require("express");
 const app = express();
 const axios = require("axios");
 const bodyParser = require("body-parser");
-const port = 80;
 const url = "https://api.telegram.org/bot";
 const apiToken = process.env.TELEGRAM_ACCESS_TOKEN;
 const serverless = require("serverless-http");
+const router = express.Router();
+
 // Configurations
 app.use(bodyParser.json());
 
@@ -33,5 +34,7 @@ app.post("/", (req, res) => {
 //   console.log(`Listening on port ${port}`);
 // });
 
-module.exports = app;
+app.use(`/.netlify/functions/skate-bot`, router);
+
+exports.handler = app;
 module.exports.handler = serverless(app);
