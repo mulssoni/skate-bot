@@ -31,7 +31,7 @@ router.post("/", (req, res) => {
     });
 });
 // Listening
-router.listen(port, () => {
+app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
