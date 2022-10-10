@@ -13,7 +13,7 @@ app.use("/.netlify/functions/skate-bot", router);
 // Endpoints
 
 const router = express.Router();
-app.post("/", (req, res) => {
+router.post("/", (req, res) => {
   const chatId = req.body.message.chat.id;
   const sentMessage = req.body.message.text;
 
@@ -31,7 +31,7 @@ app.post("/", (req, res) => {
     });
 });
 // Listening
-app.listen(port, () => {
+router.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
