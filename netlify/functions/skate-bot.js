@@ -9,10 +9,10 @@ const apiToken = process.env.TELEGRAM_ACCESS_TOKEN;
 const serverless = require("serverless-http");
 // Configurations
 app.use(bodyParser.json());
-app.use("/.netlify/functions/skate-bot", router);
+const router = express.Router();
+
 // Endpoints
 
-const router = express.Router();
 router.post("/", (req, res) => {
   const chatId = req.body.message.chat.id;
   const sentMessage = req.body.message.text;
@@ -34,6 +34,8 @@ router.post("/", (req, res) => {
 router.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+app.use("/.netlify/functions/skate-bot", router);
 
 module.exports = app;
 module.exports.handler = serverless(app);
