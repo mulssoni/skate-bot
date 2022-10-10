@@ -29,8 +29,8 @@ app.post("/", (req, res) => {
     });
 });
 // Listening
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Listening on port ${port}`);
+// });
 
 module.exports.handler = serverless(app);
