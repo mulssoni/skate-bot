@@ -12,6 +12,10 @@ const router = express.Router();
 app.use(bodyParser.json());
 
 // Endpoints
+app.get("/", (req, res) => {
+  res.status(200).send(response);
+});
+
 app.post("/", (req, res) => {
   const chatId = req.body.message.chat.id;
   const sentMessage = req.body.message.text;
