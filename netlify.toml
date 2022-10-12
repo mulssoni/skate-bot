@@ -6,7 +6,4 @@
   node_bundler = "esbuild"
 
 [functions."create-skate-poll"]
-	schedule = "0 8 * * 2"
-
-[functions."create-skate-poll"]
-	schedule = "0 8 * * 4"
+	schedule = "@daily"
