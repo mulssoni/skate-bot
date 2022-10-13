@@ -42,6 +42,13 @@ module.exports = async () => {
     createThursday
   );
 
+  await sendMessage(
+    5616549051,
+    `Scheduled function working! Days until creation Tue: ${
+      daysUntilTuesdayEvent - 7
+    }, Thu ${daysUntilThursdayEvent - 7}`
+  );
+
   if (createTuesday) {
     try {
       const res = await sendPoll(
