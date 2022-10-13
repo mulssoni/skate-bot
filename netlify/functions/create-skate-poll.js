@@ -1,6 +1,6 @@
 const sendSkatePoll = require("../../src/sendSkatePoll");
 
 exports.handler = async () => {
-  sendSkatePoll();
+  await sendSkatePoll();
   return { statusCode: 200 };
 };
