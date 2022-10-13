@@ -13,12 +13,12 @@ module.exports = async (
     console.log("sendPoll: check params!");
     return;
   }
-  await axios.post(`${url}${TELEGRAM_ACCESS_TOKEN}/sendPoll`, {
+  const res = await axios.post(`${url}${TELEGRAM_ACCESS_TOKEN}/sendPoll`, {
     chat_id,
     question,
     options,
     is_anonymous,
   });
 
-  return true;
+  return res;
 };
