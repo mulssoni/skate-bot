@@ -1,5 +1,6 @@
 require("dotenv").config();
 const sendPoll = require("./sendPoll");
+const sendMessage = require("./sendMessage");
 const isTuesday = require("date-fns/isTuesday");
 const isThursday = require("date-fns/isThursday");
 const nextTuesday = require("date-fns/nextTuesday");
