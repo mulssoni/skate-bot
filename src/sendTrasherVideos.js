@@ -6,7 +6,7 @@ module.exports = async () => {
       "https://skate-api.netlify.app/.netlify/functions/trasher"
     );
     const str =
-      res.data?.map((item) => item.title + "\n" + item.url + "\n\n") ||
+      res.data?.map((item) => `${item.title}\n${item.link}\n\n`) ||
       "No videos found";
     return str;
   } catch {
