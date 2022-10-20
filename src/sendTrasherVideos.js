@@ -6,7 +6,7 @@ module.exports = async () => {
       "https://skate-api.netlify.app/.netlify/functions/trasher"
     );
     const str = "";
-    res.data?.array.forEach((item) => {
+    res.data?.forEach((item) => {
       str.concat(`${item.title}\n${item.link}\n\n`);
     }) || "No videos!";
     return str;
