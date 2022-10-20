@@ -5,7 +5,7 @@ module.exports = async () => {
     const res = await axios.get(
       "https://skate-api.netlify.app/.netlify/functions/trasher"
     );
-    const str = "";
+    let str = "";
     res.data?.forEach((item) => {
       str.concat(`${item.title}\n${item.link}\n\n`);
     }) || "No videos!";
