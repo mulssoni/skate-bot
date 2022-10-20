@@ -10,7 +10,7 @@ exports.handler = async (event) => {
     // await sendMessage(message.chat.id, `I got your message! ${message.text}`);
   }
   if (message?.text === "/poll") await sendSkatePoll();
-  if (message?.text === "/trasher-video-parts") {
+  if (message?.text === "/trashervideos") {
     await sendMessage(message.chat.id, await sendTrasherVideos());
   }
   // await sendPoll(message.chat.id, message.text);
