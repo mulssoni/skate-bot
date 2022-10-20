@@ -1,18 +1,28 @@
+require("dotenv").config();
 const sendMessage = require("../../src/sendMessage");
-const sendPoll = require("../../src/sendPoll");
 const sendSkatePoll = require("../../src/sendSkatePoll");
 const sendTrasherVideos = require("../../src/sendTrasherVideos");
+const messageParts = require("../../src/utils/messageParts");
 
 exports.handler = async (event) => {
   console.log(JSON.parse(event?.body));
   const { message } = JSON.parse(event?.body);
-  if (message) {
-    // await sendMessage(message.chat.id, `I got your message! ${message.text}`);
+  const { command, botName } = messageParts(message.text);
+
+  if (botName === "BobTheSkateBot" || botName === null) {
+    switch (command) {
+      case "poll":
+        await sendSkatePoll();
+        break;
+
+      case "trashervideos":
+        await sendMessage(message.chat.id, await sendTrasherVideos());
+        break;
+
+      default:
+        await sendMessage(message.chat.id, "Command was not found!");
+        break;
+    }
   }
-  if (message?.text === "/poll") await sendSkatePoll();
-  if (message?.text === "/trashervideos") {
-    await sendMessage(message.chat.id, await sendTrasherVideos());
-  }
-  // await sendPoll(message.chat.id, message.text);
   return { statusCode: 200 };
 };
