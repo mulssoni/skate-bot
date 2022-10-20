@@ -7,9 +7,9 @@ const messageParts = require("../../src/utils/messageParts");
 exports.handler = async (event) => {
   console.log(JSON.parse(event?.body));
   const { message } = JSON.parse(event?.body);
-  const { command, botName } = messageParts(message.text);
+  const { command, botName, isCommand } = messageParts(message.text);
 
-  if (botName === "BobTheSkateBot" || botName === null) {
+  if (isCommand && (botName === "BobTheSkateBot" || botName === null)) {
     switch (command) {
       case "poll":
         await sendSkatePoll();

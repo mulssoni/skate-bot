@@ -8,9 +8,12 @@ module.exports = (text) => {
   const extraMatch = text.match(/(?<=\s).*?(?=$)/);
   const extra = extraMatch ? extraMatch[0] : null;
 
+  const isCommand = text.match(/^\//) ? true : false;
+
   return {
     command,
     botName,
     extra,
+    isCommand,
   };
 };
