@@ -5,10 +5,10 @@ module.exports = async () => {
     const res = await axios.get(
       "https://skate-api.netlify.app/.netlify/functions/trasher"
     );
-    const str =
-      JSON.stringify(
-        res.data?.map((item) => `${item.title}\n${item.link}\n\n`)
-      ) || "No videos found";
+    const str = "";
+    res.data?.array.forEach((item) => {
+      str.concat(`${item.title}\n${item.link}\n\n`);
+    }) || "No videos!";
     return str;
   } catch {
     return "Couldn't get new videos";
